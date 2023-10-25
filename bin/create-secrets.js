@@ -128,8 +128,7 @@ function parseSecrets(obj) {
 
 function createSecrets(list) {
 
-    const secretsmanager = new SecretsManagerClient();
-    secretsmanager.region = region;
+    const secretsmanager = new SecretsManagerClient({ region });
     let promises = [];
 
     for (let item of list) {

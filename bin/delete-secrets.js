@@ -19,8 +19,7 @@ const verbose = argv.v || argv.verbose;
 const env = argv.e || argv.env || ENV;
 const namespace = argv.n || argv.namespace;
 const region = argv.r || argv.region || process.env.AWS_REGION || REGION;
-const secretsmanager = new SecretsManagerClient();
-secretsmanager.region = region;
+const secretsmanager = new SecretsManagerClient({ region });
 
 
 function showHelp() {
