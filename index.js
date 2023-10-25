@@ -1,33 +1,28 @@
-
 const Secrets = require('./lib/secrets');
 
 module.exports.Secrets = Secrets;
 
-module.exports.config = function (options={}) { 
+module.exports.config = function (options = {}) {
 
-	const secrets = new Secrets(options);
+    const secrets = new Secrets(options);
 
-	return secrets.config();
+    return secrets.config();
 };
 
-module.exports.configSync = function (options={}) { 
+module.exports.configSync = function (options = {}) {
 
-	const secrets = new Secrets(options);
-	
-	let config  = secrets.configSync();
-	
-	return config;
+    const secrets = new Secrets(options);
+
+    return secrets.configSync();
 };
 
-module.exports.secretSync = function (options) { 
+module.exports.secretSync = function (options) {
 
-	const secrets = new Secrets({
-		region: options.region
-	});
-	
-	delete options.region;
-	
-	let secret = secrets.getSecretSync(options);
-	
-	return secret;
+    const secrets = new Secrets({
+        region: options.region
+    });
+
+    delete options.region;
+
+    return secrets.getSecretSync(options);
 };

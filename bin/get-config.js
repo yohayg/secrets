@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const Secrets = require( '../lib/secrets' );
+const Secrets = require('../lib/secrets');
 const argv = require('minimist')(process.argv.slice(2));
 const {inspect} = require('util');
 
@@ -16,11 +16,11 @@ const delimiter = argv.delimiter || argv.d || DELIMITER;
 const all = argv.all || argv.a;
 const time = argv.time || argv.t;
 
-function showHelp () {
-	console.log(`
+function showHelp() {
+    console.log(`
 Retrieve all secrets from AWS Secrets Manager. 
 
-Usage: get-config --namespace mynamespace --env production --pretty
+Usage: get-config --namespace my-namespace --env production --pretty
 
 Options:
 -h, --help		Show help.
@@ -33,66 +33,66 @@ Options:
 -t, --time		Display time it takes to retrieve config.
 `);
 
-	return process.exit();
+    return process.exit();
 }
 
 
-(async function(){
-	
-	if (time) {
-		console.time( 'total time' );
-	}
+(async function () {
+
+    if (time) {
+        console.time('total time');
+    }
 
 
-	if (argv.h || argv.help) {
-		return showHelp();
-	}
+    if (argv.h || argv.help) {
+        return showHelp();
+    }
 
-	
-	let options = {
-		region: region,
-		env: env,
-	};
-	
-	if (namespace && namespace.length) {
-		options.namespace = namespace;
-	}
-	
-	if (all) {
-		options.all = true;
-	}
-	
-	if (delimiter) {
-		options.delimiter = delimiter;
-	}
-	
-	const secrets = new Secrets(options);
 
-	let config;
-	
-	try {
-		config = await secrets.config();
-	} catch (err) {
-		return Promise.reject(err);
-	}
-	
-	if (pretty) {
+    let options = {
+        region: region,
+        env: env,
+    };
 
-		console.log( inspect(config, {depth:10, colors:true}) );
+    if (namespace && namespace.length) {
+        options.namespace = namespace;
+    }
 
-	} else {
-		
-		try {
-			console.log( JSON.stringify(config) );
-		} catch (err) {
-			return Promise.reject(err);
-		}
+    if (all) {
+        options.all = true;
+    }
 
-	}
-	
-	if (time) {
-		console.timeEnd( 'total time' );
-	}
+    if (delimiter) {
+        options.delimiter = delimiter;
+    }
 
-	
+    const secrets = new Secrets(options);
+
+    let config;
+
+    try {
+        config = await secrets.config();
+    } catch (err) {
+        return Promise.reject(err);
+    }
+
+    if (pretty) {
+
+        console.log(inspect(config, {depth: 10, colors: true}));
+
+    } else {
+
+        try {
+            console.log(JSON.stringify(config));
+        } catch (err) {
+            return Promise.reject(err);
+        }
+
+    }
+
+    if (time) {
+        console.timeEnd('total time');
+    }
+
+
 })();

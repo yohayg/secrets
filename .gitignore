@@ -42,13 +42,12 @@ Thumbs.db
 ###################
 node_modules
 *.seed
-*.log
 *.csv
 *.dat
 *.out
 *.pid
-*.gz
 
 
 # Other #
+.idea
 #########
