@@ -6,7 +6,7 @@ Synchronously retrieve all your secrets from [AWS Secrets Manager](https://aws.a
 ## Install
 
 ``` bash
-npm install --save @yohayg/secrets
+npm install --save @ygolan/secrets
 ```
 
 ## Example
@@ -185,7 +185,7 @@ Delete a secret with a recovery window of 30 days unless `force` argument is `tr
 There are a few handy CLI tools in the bin directory to help you get started. It helps to install this globally:
 
 ```bash
-npm install --global @yohayg/secrets
+npm install --global @ygolan/secrets
 ```
 
 All of the following commands have arguments which you can learn more about by using the `--help` flag.
