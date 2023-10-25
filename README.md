@@ -1,3 +1,4 @@
+Contributed by https://github.com/jwerre/secrets
 # Secrets
 
 Synchronously retrieve all your secrets from [AWS Secrets Manager](https://aws.amazon.com/secrets-manager) and create a tidy configuration object for your application or service. AWS Secrets Manager is a secure way to store sensitive information for your application. Instead of putting a configuration file on all your servers, particularly if you have distributed architecture, securely store them in AWS Secrets Manager and use this module to synchronously retrieve them before your application loads.
@@ -5,7 +6,7 @@ Synchronously retrieve all your secrets from [AWS Secrets Manager](https://aws.a
 ## Install
 
 ``` bash
-npm install --save @jwerre/secrets
+npm install --save @yohayg/secrets
 ```
 
 ## Example
@@ -184,7 +185,7 @@ Delete a secret with a recovery window of 30 days unless `force` argument is `tr
 There are a few handy CLI tools in the bin directory to help you get started. It helps to install this globally:
 
 ```bash
-npm install --global @jwerre/secrets
+npm install --global @yohayg/secrets
 ```
 
 All of the following commands have arguments which you can learn more about by using the `--help` flag.
